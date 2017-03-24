@@ -3,3 +3,8 @@ Opened project on GitHub: https://github.com/Sergix7440/Wrapper
 Created changelog.txt file
 Updated README.md with project information
 Pushed updates to GitHub.
+
+[3/24/2017-16:56 0]
+Created base directories: /src /docs /build /build/src /build/changelog
+Updated README.md with documentation information
+Pushed updates to GitHub.

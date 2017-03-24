@@ -38,3 +38,13 @@ The format for a changelog entry is as follows:
 (newline before next entry)
 
 Timestamps should be in 24-hour (aka military) time.
+
+### Documentation
+Documentation should be published with every major release.
+A "major" release is defined as one with the version number that corresponds to the following examples: "1.x", "2.x", "3.x"
+Documentation guidelines are to be written in Markdown formatting. Guidelines are as follows:
+
+- Main Header: \#
+- Subheadings: \#\#\#
+- Standard text
+- Code blocks use markdown code block formatting
