@@ -15,4 +15,9 @@ Added the base files for the project:
     main.cpp (main())
     main.hpp (resources for main.cpp)
 Updated changelog: removed references to Visual Studio, as it is no longer needed.
-Pushed updates tp GitHub.
+Pushed updates to GitHub.
+
+[3/24/2017-22:30 1.0]
+Added opening text and menu, requesting input for directory and output file.
+Added wrap() function, but have not yet implemented the actual wrapping.
+Pushed updates to GitHub.
