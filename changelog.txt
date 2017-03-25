@@ -21,3 +21,8 @@ Pushed updates to GitHub.
 Added opening text and menu, requesting input for directory and output file.
 Added wrap() function, but have not yet implemented the actual wrapping.
 Pushed updates to GitHub.
+
+[3/24/2017-23:10 1.0]
+First working implementation! Added the actual file finding and bundling into the application. Loops through the files in the current directory using a little trick I found and then copies the contents into the output file.
+Bundling the source code into v1.0.
+Pushed updates to GitHub.
