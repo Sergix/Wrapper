@@ -6,19 +6,13 @@ The goal of this project is to create a simple solution to package multiple file
 The metadata of the package, such as header and transfer information, bundle data, and file "borders" will all be handled by the application.
 
 ### Implementation
-This project will be built in C++ and compiled for Windows using Visual Studio 2017.
-For Linux, the project will be built using the MinGW/g++ compiler. The source code for the Linux version will vary from the Windows version due to directory formatting.
+This project will be built in C++ and compiled for Windows and Linux using the MinGW g++ compiler. The source code for the Linux version will vary from the Windows version due to directory formatting.
 
 ### Dependencies
 One of the aims of this project is that the source code will rely on 0 dependencies outside of the standard C++ compiler/libraries and included source code.
 
-### IDEs
-For Visual Studio, the project should be built using the standard ".sln" filetype, set to "Release" and 64-bit when pushing a release.
-When debugging/testing, make sure it is set to the Debug build type.
-The format for the ".sln" file should be as follows: "wrapper-vs-v(build version).sln"
-
 ### Builds
-Once you build a file from the source code to an executable (.exe), push it to the /build folder, along with the associated changelog (see Changelog section), the source code (see Source Code section), and the Visual Studio Solution (.sln) file (see IDE section).
+Once you build a file from the source code to an executable (.exe), push it to the /build folder, along with the associated changelog (see Changelog section), and the source code (see Source Code section).
 The format of the executable's filename is as follows: "wrapper-v(build version).exe"
 
 ### Source Code

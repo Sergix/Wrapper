@@ -8,3 +8,11 @@ Pushed updates to GitHub.
 Created base directories: /src /docs /build /build/src /build/changelog
 Updated README.md with documentation information
 Pushed updates to GitHub.
+
+[3/24/2017-21:35 1.0]
+Created compiler.bat file for running the compilation process using the g++ compiler on Windows; requires that the end user places the correct directories in his system, and that he specify the version number for the build from the command prompt.
+Added the base files for the project:
+    main.cpp (main())
+    main.hpp (resources for main.cpp)
+Updated changelog: removed references to Visual Studio, as it is no longer needed.
+Pushed updates tp GitHub.
