@@ -1,0 +1,16 @@
+Changelog entry:
+
+[3/27/2017-22:09 1.0.1]
+    Official build of 1.0.1. Now builds all files included in a folder into a single ".wrap" file that contains metadata for the upcoming unpacker. 
+    Full changes noted in the build's changelog.
+    Pushed updates to GitHub.
+
+Full changes include:
+    - Application pulls all files from inside the current folder for the output file
+    - Metadata:
+        + Uses "###* " as the line prefix
+        + Top line contains output filename and version of wrapper
+        + Other lines prefix the section of the file with the filename it was imported from
+    - Changed code used to get filenames in the folder to a Windows-library dependent method
+    - Ignores executable file when building
+    - Fixed issue where file data string was not clearing

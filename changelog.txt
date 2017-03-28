@@ -1,28 +1,45 @@
 [3/24/2017-16:29 0]
-Opened project on GitHub: https://github.com/Sergix7440/Wrapper
-Created changelog.txt file
-Updated README.md with project information
-Pushed updates to GitHub.
+    Opened project on GitHub: https://github.com/Sergix7440/Wrapper
+    Created changelog.txt file
+    Updated README.md with project information
+    Pushed updates to GitHub.
 
 [3/24/2017-16:56 0]
-Created base directories: /src /docs /build /build/src /build/changelog
-Updated README.md with documentation information
-Pushed updates to GitHub.
+    Created base directories: /src /docs /build /build/src /build/changelog
+    Updated README.md with documentation information
+    Pushed updates to GitHub.
 
 [3/24/2017-21:35 1.0]
-Created compiler.bat file for running the compilation process using the g++ compiler on Windows; requires that the end user places the correct directories in his system, and that he specify the version number for the build from the command prompt.
-Added the base files for the project:
-    main.cpp (main())
-    main.hpp (resources for main.cpp)
-Updated changelog: removed references to Visual Studio, as it is no longer needed.
-Pushed updates to GitHub.
+    Created compiler.bat file for running the compilation process using the g++ compiler on Windows; requires that the end user places the correct directories in his system, and that he specify the version number for the build from the command prompt.
+    Added the base files for the project:
+        main.cpp (main())
+        main.hpp (resources for main.cpp)
+    Updated changelog: removed references to Visual Studio, as it is no longer needed.
+    Pushed updates to GitHub.
 
 [3/24/2017-22:30 1.0]
-Added opening text and menu, requesting input for directory and output file.
-Added wrap() function, but have not yet implemented the actual wrapping.
-Pushed updates to GitHub.
+    Added opening text and menu, requesting input for directory and output file.
+    Added wrap() function, but have not yet implemented the actual wrapping.
+    Pushed updates to GitHub.
 
 [3/24/2017-23:10 1.0]
-First working implementation! Added the actual file finding and bundling into the application. Loops through the files in the current directory using a little trick I found and then copies the contents into the output file.
-Bundling the source code into v1.0.
-Pushed updates to GitHub.
+    First working implementation! Added the actual file finding and bundling into the application. Loops through the files in the current directory using a little trick I found and then copies the contents into the output file.
+    Bundling the source code into v1.0.
+    Pushed updates to GitHub.
+
+[3/27/2017-20:53 1.0.1]
+    Changed the method used to get the files to include in the "wrap." Now uses the Windows library to get the files so that it doesn't grab the entire path of the drive along with the filename, and only gets the files in the current folder and not subfolders.
+    The current known issue is that it puts some files multiple times in the output file.
+    As of now, build 1.0 is now considered DEPRECATED.
+
+[3/27/2017-21:09 1.0.1]
+    Solved the issue presented in the previous changelog entry. A rather stupid mistake, apparently I wasn't clearing the initial string that I was copying the file data to. The newest issue is that it is attempting to copy the executable into the output, but this should be a very easy fix.
+
+[3/27/2017-21:53 1.0.1]
+    Fixed the issue presented in the last changelog entry as well. The program now skips the executable.
+    Added file name and small output file metadata using special comments in the format of "###*" strings. This will let the unpacker know what is what once the unpacker is built.
+
+[3/27/2017-22:09 1.0.1]
+    Official build of 1.0.1. Now builds all files included in a folder into a single ".wrap" file that contains metadata for the upcoming unpacker. 
+    Full changes noted in the build's changelog.
+    Pushed updates to GitHub.

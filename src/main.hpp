@@ -6,3 +6,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <cstdio>
+#include <vector>
+#include <windows.h>
+
+#define BUFFER_SIZE 131072
