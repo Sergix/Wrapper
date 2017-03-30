@@ -9,4 +9,5 @@
 #include <vector>
 #include <windows.h>
 
+#define NAME_SIZE 256
 #define BUFFER_SIZE 131072

@@ -43,3 +43,15 @@
     Official build of 1.0.1. Now builds all files included in a folder into a single ".wrap" file that contains metadata for the upcoming unpacker. 
     Full changes noted in the build's changelog.
     Pushed updates to GitHub.
+
+[3/29/2017-22:03 1.0.2]
+    Moved certain information lines into the wrap function.
+    Added a selection menu to either select wrap or unwrap actions.
+    Created an unwrap function that will now be tested.
+    Changed the metadata comment symbol for the file header to differentiate between file header and packaged filename.
+    
+[3/30/2017-19:25 1.0.2]
+    Finished the unwrapper function.
+    Now reads all files from the package and unwraps them into the folder the application is in.
+    Pushed this update as 1.0.2.
+    Pushed to GitHub.

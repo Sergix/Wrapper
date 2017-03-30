@@ -1,0 +1,12 @@
+Changelog entry:
+
+[3/30/2017-19:25 1.0.2]
+    Finished the unwrapper function.
+    Now reads all files from the package and unwraps them into the folder the application is in.
+    Pushed this update as 1.0.2.
+    Pushed to GitHub.
+
+Full changes include:
+    - Now able to unwrap packaged files and places the resulting files into the folder the application is in.
+    - Fixed issue with the wrapping process.
+    - Added a menu to choose options from (wrap or unwrap.)
