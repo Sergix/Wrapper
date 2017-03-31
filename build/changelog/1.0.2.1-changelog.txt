@@ -1,0 +1,10 @@
+Changelog entry:
+
+[3/30/2017-20:37 1.0.2.1]
+    Added console arguments to be able to associate .wrap files with it.
+    Wrapping a package adds the .wrap extension.
+    Pushed updates to GitHub.
+
+Full changes include:
+    - File can now be associated with the application.
+    - Wrapping automatically appends the ".wrap" extension to outputted packages.

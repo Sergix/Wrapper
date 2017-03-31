@@ -20,6 +20,8 @@ int wrap()
     cout << "\nEnter output file\n> ";
     cin >> output_file;
 
+    strcat(output_file, ".wrap");
+
     cout << "\nPackaging..." << endl;
 
     vector<string> filelist;
@@ -38,13 +40,13 @@ int wrap()
     ofstream output(output_file, ios_base::out);
 
     // Add some metadeta to the top of the output file
-    output << "###% " << output_file << "\twrapper-v1.0.2\n" << endl;
+    output << "###% " << output_file << "\twrapper-v1.0.2.1\n" << endl;
 
     // Iterate through each file, read it, and spit its content out into the output file
     for (i = 0; i < filelist.size(); i++)
     {
 
-        if (filelist[i] == "wrapper-v1.0.2.exe") // Skip the executable itself
+        if (filelist[i] == "wrapper-v1.0.2.1.exe") // Skip the executable itself
             continue;
 
         ifstream current_file(filelist[i].c_str(), ios_base::in); // Open the file to extract it's contents
@@ -70,18 +72,21 @@ int wrap()
     return 0;
 }
 
-int unwrap()
+int unwrap(char filename[NAME_SIZE] = 0)
 {
-    char input_file[NAME_SIZE];
+    char* input_file = filename;
     char current_line_contents[BUFFER_SIZE];
     string current_string;
     string new_file_name;
 
-    cout << "\nNOTICE\nPlace this executable in the directory where you would like to unwrap the package files. If it is not in the correct directory, close the application now and move it." << endl;
-    cin.ignore();
+    if (input_file == 0)
+    {
+        cout << "\nNOTICE\nPlace this executable in the directory where you would like to unwrap the package files. If it is not in the correct directory, close the application now and move it." << endl;
+        cin.ignore();
 
-    cout << "Enter package filename\n> ";
-    cin >> input_file;
+        cout << "Enter package filename\n> ";
+        cin >> input_file;
+    }
 
     cout << "Unwrapping...\n";
 
@@ -161,8 +166,6 @@ int unwrap()
 
     }
 
-    cin.ignore();
-
     return 0;
 }
 
@@ -170,7 +173,13 @@ int main (int argc, char* argv[])
 {
     int option;
 
-    cout << "Wrapper v1.0.2\nhttps://github.com/Sergix7440/Wrapper" << endl;
+    if (argc > 1)
+    {
+        unwrap(argv[1]);
+        return 0;
+    }
+
+    cout << "Wrapper v1.0.2.1\nhttps://github.com/Sergix7440/Wrapper" << endl;
     cout << "Select an action to perform\n---------------------------\n\t1. Create a new package\n\t2. Unpack a package file" << endl;
 
     cin >> option;
