@@ -1,5 +1,6 @@
-# Wrapper
-Programming language package manager.
+<img src="https://github.com/Sergix7440/Wrapper/blob/master/wrapper.png?raw=true" alt="Wrapper"/>
+
+## Programming language package manager.
 
 ### Definition
 The goal of this project is to create a simple solution to package multiple files and metadata into a single portable file that can be built and extracted using the application.
