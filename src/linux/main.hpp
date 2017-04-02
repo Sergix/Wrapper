@@ -1,15 +1,13 @@
 #pragma once
 
+#include <sys/types.h>
+#include <dirent.h>
 #include <iostream>
-#include <stdio.h>
 #include <fstream>
 #include <sstream>
-#include <cstdlib>
 #include <cstring>
-#include <cstdio>
+#include <string>
 #include <vector>
-#include <dirent.h>
-#include <sys/types.h>
 
 #define NAME_SIZE 256
 #define BUFFER_SIZE 131072

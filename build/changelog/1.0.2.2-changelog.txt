@@ -1,0 +1,15 @@
+Changelog entry:
+
+[4/1/2017-23:40 1.0.2.2]
+    Finished the Linux build! Now is fully functional and has been tested.
+    Updated new version 1.0.2.2 for small fixes and improvements in both build types.
+    In the build folder, builds for specific OS's are now in their respective folder.
+    Documentation and source will be updated.
+    Pushed to GitHub.
+
+Full changes include:
+    - Linux build
+        + Tested on Ubuntu
+        + Implements <dirent.h> and <sys/types.h> Unix libraries
+        + Exports as no-type file
+    - Small bug fixes and improvements

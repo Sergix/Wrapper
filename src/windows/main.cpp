@@ -10,8 +10,8 @@ using namespace std;
 int wrap()
 {
     char output_file[NAME_SIZE];
-    char current_file_line[BUFFER_SIZE];
-    char current_file_contents[BUFFER_SIZE];
+    string current_file_line;
+    string current_file_contents;
     int i;
 
     cout << "\nNOTICE\nPlace this executable in the directory of all the files you wish to package. If it is not in the correct directory, close the application now and move it." << endl;
@@ -50,11 +50,9 @@ int wrap()
             continue;
 
         ifstream current_file(filelist[i].c_str(), ios_base::in); // Open the file to extract it's contents
-        while (!current_file.eof()) // Loop through the file lines
+        while (getline(current_file, current_file_line)) // Loop through the file lines
         {
-            current_file.getline(current_file_line, BUFFER_SIZE); // Get a new line
-            strcat(current_file_contents, current_file_line); // Spit the line contents into the full variable
-            strcat(current_file_contents, "\n"); // Slap a newline onto the end of each line
+            current_file_contents += current_file_line + '\n'; // Spit the line contents into the full variable
         }
 
         output << "###* " << filelist[i] << '\n' << endl; // Output the name of the file
@@ -75,7 +73,7 @@ int wrap()
 int unwrap(char filename[NAME_SIZE] = 0)
 {
     char* input_file = filename;
-    char current_line_contents[BUFFER_SIZE];
+    string current_line_contents;
     string current_string;
     string new_file_name;
 
@@ -92,11 +90,8 @@ int unwrap(char filename[NAME_SIZE] = 0)
 
     ifstream package(input_file, ios_base::in);
 
-    while (!package.eof())
+    while (getline(package, current_line_contents))
     {
-        // Get the next line of the file
-        package.getline(current_line_contents, BUFFER_SIZE);
-
         // Create a stringstream to handle metadata comments
         istringstream current_line(current_line_contents);
 
@@ -110,13 +105,10 @@ int unwrap(char filename[NAME_SIZE] = 0)
         if (current_string == "###*")
         {
             // Read the rest of the string, which contains the filename.
-            while(!current_line.eof())
+            while(current_line >> current_string)
             {
-                // Read the filename
-                current_line >> current_string;
-
                 // Append the current string onto the filename (for handling filenames with spaces)
-                new_file_name = new_file_name + current_string;
+                new_file_name += current_string;
             }
 
             // Skip to the next iteration, which will now read from the new file
@@ -131,11 +123,8 @@ int unwrap(char filename[NAME_SIZE] = 0)
         ofstream output(new_file_name.c_str(), ios_base::out);
 
         // Loop through the rest of the file
-        while (!package.eof())
+        while (getline(package, current_line_contents))
         {
-            // Get the next line of the file
-            package.getline(current_line_contents, BUFFER_SIZE);
-
             // Create a stringstream to handle metadata comments
             istringstream current_line(current_line_contents);
 
@@ -145,14 +134,11 @@ int unwrap(char filename[NAME_SIZE] = 0)
             // If the current read string is a metadata comment
             if (current_string == "###*")
             {
+                new_file_name = "";
                 // Read the rest of the string, which contains the filename.
-                while(!current_line.eof())
+                while(current_line >> current_string)
                 {
-                    // Read the filename
-                    current_line >> current_string;
-
                     // Append the current string onto the filename (for handling filenames with spaces)
-                    new_file_name = "";
                     new_file_name = new_file_name + current_string;
                 }
 
@@ -182,6 +168,7 @@ int main (int argc, char* argv[])
     cout << "Wrapper v1.0.2.1\nhttps://github.com/Sergix7440/Wrapper" << endl;
     cout << "Select an action to perform\n---------------------------\n\t1. Create a new package\n\t2. Unpack a package file" << endl;
 
+    cout << "> ";
     cin >> option;
     switch (option)
     {
