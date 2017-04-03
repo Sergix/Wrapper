@@ -11,5 +11,5 @@ Full changes include:
     - Linux build
         + Tested on Ubuntu
         + Implements <dirent.h> and <sys/types.h> Unix libraries
-        + Exports as no-type file
+        + Application is a no-extension object binary
     - Small bug fixes and improvements
