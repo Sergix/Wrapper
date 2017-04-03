@@ -72,3 +72,11 @@
     In the build folder, builds for specific OS's are now in their respective folder.
     Documentation and source will be updated.
     Pushed to GitHub.
+
+[4/3/2017-19:46 1.0.2.3]
+    Created documentation for 1.0.2.2.
+    Noticed a large issue in both builds where the wrapper attempts to package the executable, so the fix will be pushed in this update.
+    New documentation will not be provided for this fix.
+    1.0.2.2 is now DEPRECATED. Check the "Build Targets" section in the updated README.md and in the documentation for build information.
+    Fixed a typo in a source build file ("1.0.2.2.zip" => "1.0.2.2-src.zip").
+    Pushed update 1.0.2.3 to GitHub.

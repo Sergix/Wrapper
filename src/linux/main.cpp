@@ -34,13 +34,13 @@ int wrap()
     ofstream output(output_file.c_str(), ios_base::out);
 
     // Add some metadeta to the top of the output file
-    output << "###% " << output_file << "\twrapper-linux-v1.0.2.1\n" << endl;
+    output << "###% " << output_file << "\twrapper-linux-v1.0.2.3\n" << endl;
 
     // Iterate through each file, read it, and spit its content out into the output file
     for (i = 0; i < filelist.size(); i++)
     {
 
-        if (filelist[i] == "wrapper-linux-v1.0.2.1" || filelist[i][0] == '.') // Skip the executable itself or special folders
+        if (filelist[i] == "wrapper-linux-v1.0.2.3" || filelist[i][0] == '.') // Skip the executable itself or special folders
             continue;
 
         ifstream current_file(filelist[i].c_str()); // Open the file to extract it's contents
@@ -163,7 +163,7 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    cout << "Wrapper v1.0.2.1\nhttps://github.com/Sergix7440/Wrapper" << endl;
+    cout << "Wrapper v1.0.2.3\nhttps://github.com/Sergix7440/Wrapper" << endl;
     cout << "Select an action to perform\n---------------------------\n\t1. Create a new package\n\t2. Unpack a package file" << endl;
     cout << "> ";
 
@@ -182,8 +182,6 @@ int main (int argc, char* argv[])
             cout << "\nInput not recognized. Please enter the number of the option you would like to perform.";
             break;
     }
-
-    cin.ignore();
 
     return 0;
 }

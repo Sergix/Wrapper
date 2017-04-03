@@ -1,0 +1,13 @@
+Changelog entry:
+
+[4/3/2017-19:46 1.0.2.3]
+    Created documentation for 1.0.2.2.
+    Noticed a large issue in both builds where the wrapper attempts to package the executable, so the fix will be pushed in this update.
+    New documentation will not be provided for this fix.
+    1.0.2.2 is now DEPRECATED. Check the "Build Targets" section in the updated README.md and in the documentation for build information.
+    Fixed a typo in a source build file ("1.0.2.2.zip" => "1.0.2.2-src.zip").
+    Pushed update 1.0.2.3 to GitHub.
+
+Full changes include:
+    - Fixed a potentially large issue where the wrapping process would attempt to copy the application itself into the outputted wrap file due to a small typo in the wrap() function
+    - Fixed the menu to state the actual current version, as it was displaying 1.0.2.1

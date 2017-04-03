@@ -27,10 +27,12 @@ Every time an update is pushed, the changelog will be updated and pushed as well
 It is highly recommended that every time you build you update the changelog. Once you add something to the changelog, DO NOT remove the entry if, and only if, it is incorrect.
 The global changelog file is in the root folder of the project and is named "changelog.txt"; EVERY note will go into this file. It is also required that when you push a build you push an associated changelog file, formatted "(build version)-changelog.txt". This file should be pushed to the /build/changelog directory.
 The format for a changelog entry is as follows:
-[MM/DD/YYYY-HH:MM (version)]
-(entry contents)
-(entry contents)
-(newline before next entry)
+`
+[MM/DD/YYYY-HH:MM (version)]   
+(entry contents)   
+(entry contents)   
+(newline before next entry)   
+`
 
 Timestamps should be in 24-hour (aka military) time.
 
@@ -43,3 +45,13 @@ Documentation guidelines are to be written in Markdown formatting. Guidelines ar
 - Subheadings: \#\#\#
 - Standard text
 - Code blocks use markdown code block formatting
+
+## Build Targets
+As of the latest update, Wrapper is now available for both Windows and Linux systems. All builds are as follows:
+
+    - 1.0       [Windows]           DEPRECATED
+    - 1.0.1     [Windows]
+    - 1.0.2     [Windows]
+    - 1.0.2.1   [Windows]   [Linux]
+    - 1.0.2.2   [Windows]   [Linux] DEPRECATED
+    - 1.0.2.3   [Windows]   [Linux]
