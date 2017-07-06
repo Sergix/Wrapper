@@ -54,4 +54,5 @@ As of the latest update, Wrapper is now available for both Windows and Linux sys
     - 1.0.2     [Windows]
     - 1.0.2.1   [Windows]   [Linux]
     - 1.0.2.2   [Windows]   [Linux] DEPRECATED
-    - 1.0.2.3   [Windows]   [Linux]
+    - 1.0.2.3   [Windows]   [Linux] DEPRECATED
+    - 1.1       [Windows]   [Linux] 
