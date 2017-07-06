@@ -1,0 +1,16 @@
+Changelog entry:
+
+[7/5/2017-18:19 1.1]
+    Fixed issues with the Windows and Linux version.
+    Global APP_VERSION variable created to help easily change the version number of the application.
+    Fixed string clearing of the file output variable.
+    Fixed input not working for unwrap function.
+    Wrote docs for version 1.1 of Wrapper!
+    1.1 sould be considered the only stable Windows version, although it is not marked that way in the documentation.
+    Pushed update 1.1 to GitHub.
+
+Full changes include:
+    - Created testing scripts for Windows and Linux (batch and shell)
+    - Created an "APP_VERSION" string constant in main.hpp that contains the current version of the program and is used throughout the application
+    - Fixed a bug where the wrapping function was not clearing the string holding the file output data
+    - Fixed a bug where the input stream for the filename in the unwrapping function was crashing the program

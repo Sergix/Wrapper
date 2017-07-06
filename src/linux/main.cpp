@@ -9,6 +9,10 @@ using namespace std;
 //
 int wrap()
 {
+    // Application version name
+    char version[29] = "wrapper-linux-v";
+    strcat(version, APP_VERSION);
+
     string output_file;
     string current_file_line;
     string current_file_contents;
@@ -34,21 +38,20 @@ int wrap()
     ofstream output(output_file.c_str(), ios_base::out);
 
     // Add some metadeta to the top of the output file
-    output << "###% " << output_file << "\twrapper-linux-v1.0.2.3\n" << endl;
+    output << "###% " << output_file << "\twrapper-linux-v" << APP_VERSION << '\n' << endl;
 
     // Iterate through each file, read it, and spit its content out into the output file
     for (i = 0; i < filelist.size(); i++)
     {
 
-        if (filelist[i] == "wrapper-linux-v1.0.2.3" || filelist[i][0] == '.') // Skip the executable itself or special folders
+        if (filelist[i] == version || filelist[i][0] == '.') // Skip the executable itself or special folders
             continue;
 
         ifstream current_file(filelist[i].c_str()); // Open the file to extract it's contents
         while (getline(current_file, current_file_line)) // Loop through the file lines
         {
-            current_file_contents += current_file_line; // Spit the line contents into the full variable
-            current_file_contents += '\n'; // Slap a newline onto the end of each line
-            current_file.clear();
+            current_file_contents += current_file_line + '\n'; // Slap a newline onto the end of each line
+            //current_file.clear();
         }
 
         output << "###* " << filelist[i] << '\n' << endl; // Output the name of the file
@@ -87,6 +90,9 @@ int unwrap(char filename[NAME_SIZE] = 0)
 
     ifstream package(input_file, ios_base::in);
 
+    if (!package)
+        return 1;
+
     while (getline(package, current_line_contents))
     {
         // Create a stringstream to handle metadata comments
@@ -118,6 +124,8 @@ int unwrap(char filename[NAME_SIZE] = 0)
 
         // Open a new output file to read data from
         ofstream output(new_file_name.c_str(), ios_base::out);
+
+        cout << "Hello";
 
         // Loop through the rest of the file
         while (getline(package, current_line_contents))
@@ -163,7 +171,7 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    cout << "Wrapper v1.0.2.3\nhttps://github.com/Sergix7440/Wrapper" << endl;
+    cout << "Wrapper v" << APP_VERSION << "\nhttps://github.com/Sergix7440/Wrapper" << endl;
     cout << "Select an action to perform\n---------------------------\n\t1. Create a new package\n\t2. Unpack a package file" << endl;
     cout << "> ";
 

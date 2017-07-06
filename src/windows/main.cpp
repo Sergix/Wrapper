@@ -9,6 +9,11 @@ using namespace std;
 //
 int wrap()
 {
+    // Application version name
+    char version[29] = "wrapper-windows-v";
+    strcat(version, APP_VERSION);
+    strcat(version, ".exe");
+
     char output_file[NAME_SIZE];
     string current_file_line;
     string current_file_contents;
@@ -17,7 +22,7 @@ int wrap()
     cout << "\nNOTICE\nPlace this executable in the directory of all the files you wish to package. If it is not in the correct directory, close the application now and move it." << endl;
     cin.ignore();
 
-    cout << "\nEnter output file\n> ";
+    cout << "\nEnter output file (.wrap will be added automatically as the file extension)\n> ";
     cin >> output_file;
 
     strcat(output_file, ".wrap");
@@ -28,25 +33,25 @@ int wrap()
     string search_path = "./*.*";
     WIN32_FIND_DATA fd; 
     HANDLE hFind = ::FindFirstFile(search_path.c_str(), &fd); 
-    if(hFind != INVALID_HANDLE_VALUE) { 
+    if (hFind != INVALID_HANDLE_VALUE) { 
         do { 
-            if(! (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ) {
+            if (! (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ) {
                 filelist.push_back(fd.cFileName);
             }
-        } while(::FindNextFile(hFind, &fd)); 
+        } while (::FindNextFile(hFind, &fd)); 
         ::FindClose(hFind);
     } 
 
     ofstream output(output_file, ios_base::out);
 
     // Add some metadeta to the top of the output file
-    output << "###% " << output_file << "\twrapper-v1.0.2.3\n" << endl;
+    output << "###% " << output_file << "\twrapper-windows-v" << APP_VERSION << '\n' << endl;
 
     // Iterate through each file, read it, and spit its content out into the output file
     for (i = 0; i < filelist.size(); i++)
     {
 
-        if (filelist[i] == "wrapper-v1.0.2.3.exe") // Skip the executable itself
+        if (filelist[i] == version) // Skip the executable itself
             continue;
 
         ifstream current_file(filelist[i].c_str(), ios_base::in); // Open the file to extract it's contents
@@ -58,7 +63,7 @@ int wrap()
         output << "###* " << filelist[i] << '\n' << endl; // Output the name of the file
         output << current_file_contents << endl; // Spit the contents of the file out into the new file
 
-        current_file_contents[0] = 0; // Clear the string
+        current_file_contents = "";
         current_file.close();
 
     }
@@ -72,12 +77,12 @@ int wrap()
 
 int unwrap(char filename[NAME_SIZE] = 0)
 {
-    char* input_file = filename;
+    char* input_file;
     string current_line_contents;
     string current_string;
     string new_file_name;
 
-    if (input_file == 0)
+    if (filename == 0)
     {
         cout << "\nNOTICE\nPlace this executable in the directory where you would like to unwrap the package files. If it is not in the correct directory, close the application now and move it." << endl;
         cin.ignore();
@@ -85,6 +90,8 @@ int unwrap(char filename[NAME_SIZE] = 0)
         cout << "Enter package filename\n> ";
         cin >> input_file;
     }
+    else
+        input_file = filename;
 
     cout << "Unwrapping...\n";
 
@@ -97,9 +104,6 @@ int unwrap(char filename[NAME_SIZE] = 0)
 
         // Read the first string
         current_line >> current_string;
-
-        // Output for testing
-        cout << current_string;
 
         // If the current read string is a metadata comment
         if (current_string == "###*")
@@ -165,7 +169,7 @@ int main (int argc, char* argv[])
         return 0;
     }
 
-    cout << "Wrapper v1.0.2.3\nhttps://github.com/Sergix7440/Wrapper" << endl;
+    cout << "Wrapper v" << APP_VERSION << "\nhttps://github.com/Sergix/Wrapper" << endl;
     cout << "Select an action to perform\n---------------------------\n\t1. Create a new package\n\t2. Unpack a package file" << endl;
 
     cout << "> ";
